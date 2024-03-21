@@ -1,0 +1,59 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: black;
+}
+h1{
+    font-size: 48px;
+    color: #00ff7f;
+    padding-left: 16px;
+    
+}
+
+.list-item{
+    font-size: 24px;
+    padding-bottom: 24px;
+}
+
+input{
+    height: 48px;
+    margin-left: 16px;
+    background-color: transparent;
+    color: white;
+    padding-left: 16px;
+    font-size: 18px;
+    border-color:#00ff7f ;
+    border-radius: 16px;
+}
+
+.add-button{
+    font-size: 16px;
+    padding: 16px;
+    margin-left: 16px;
+    background-color: #00ff7f;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+:hover .add-button{
+    cursor: pointer;
+    
+}
+
+.del-button{
+    font-size: 16px;
+    padding: 16px;
+    margin-left: 16px;
+    background-color: #00ff7f;
+    border-radius: 16px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+:hover .del-button{
+    cursor: pointer;
+}
