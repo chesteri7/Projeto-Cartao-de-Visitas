@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/logo.svg" alt="Quicklist Logo" class="logo">
+            <strong>quicklist</strong>
+        </header>
+        
+        <a href="#" class="back-link">&larr; Voltar</a>
+        <main>
+            <h1>Compras do Mês</h1>
+            <div class="add-item">
+                <input type="text" id="new-item" placeholder="Adicione um novo item">
+                <button id="add-button">Adicionar item</button>
+            </div>
+
+            <ul id="shopping-list" class="shopping-list">
+                <li class="list-item">
+                    <input type="checkbox">
+                    <span>Pão de forma</span>
+                    <button class="delete-button">&#128465;</button>
+                </li>
+                <li class="list-item">
+                    <input type="checkbox">
+                    <span>Café preto</span>
+                    <button class="delete-button">&#128465;</button>
+                </li>
+                <li class="list-item">
+                    <input type="checkbox">
+                    <span>Suco de laranja</span>
+                    <button class="delete-button">&#128465;</button>
+                </li>
+                <li class="list-item">
+                    <input type="checkbox">
+                    <span>Bolacha</span>
+                    <button class="delete-button">&#128465;</button>
+                </li>
+            </ul>
+
+            <div id="alert" class="alert hidden">
+                <p>O item foi removido da lista</p>
+                <button id="close-alert">&times;</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

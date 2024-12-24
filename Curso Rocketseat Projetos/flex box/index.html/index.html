@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-Box do Chestão</title>
+    
+    <h1>Flex Box Chestão</h1>
+
+
+    <style>
+        h1{
+            display: flex;
+            font-size: 36px;
+            justify-content: center;
+            color:black;
+        }
+        
+        
+    </style>
+
+
+   <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: white;
+            
+        }
+
+        .container{
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            justify-content: space-around;
+            
+          }
+
+        .child{
+        
+            width: 25%;
+            height: 50px;
+            background-color: red;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px
+            
+
+        }
+    </style>   
+    
+   
+    
+</head>
+<body>
+
+    <div class="container">
+        <div class="child">Chestao</div>
+        <div class="child">Will</div>
+        <div class="child">Mãe</div>
+        
+    </div>
+
+   
+
+</body>
+</html>

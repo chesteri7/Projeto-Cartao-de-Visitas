@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chestão Bank - Lançamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #333;
+        }
+        nav ul li {
+            display: inline;
+            padding: 10px 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #111;
+        }
+        .container {
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chestão Bank - Sistema de Empréstimos</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Clientes</a></li>
+            <li><a href="#">Empréstimos</a></li>
+            <li><a href="#">Lançamentos</a></li>
+        </ul>
+    </nav>
+    
+
+    <div class="container">
+        <h2>Lançamento de Empréstimos</h2>
+        <div class="form-group">
+            <label for="data-emprestimo">Data do Empréstimo:</label>
+            <input type="date" id="data-emprestimo">
+        </div>
+        <div class="form-group">
+            <label for="nome-cliente">Nome do Cliente:</label>
+            <input type="text" id="nome-cliente" placeholder="Digite o nome do cliente">
+        </div>
+        <div class="form-group">
+            <label for="valor-emprestimo">Valor do Empréstimo (R$):</label>
+            <input type="number" id="valor-emprestimo" placeholder="Digite o valor do empréstimo">
+        </div>
+        <div class="form-group">
+            <label for="juros">Juros (%):</label>
+            <input type="number" id="juros" placeholder="Digite a taxa de juros">
+        </div>
+        <div class="form-group">
+            <label for="parcelas">Número de Parcelas:</label>
+            <input type="number" id="parcelas" placeholder="Digite o número de parcelas">
+        </div>
+        <div class="form-group">
+            <label for="parcelas-quitadas">Parcelas Quitadas:</label>
+            <input type="number" id="parcelas-quitadas" placeholder="Digite o número de parcelas quitadas">
+        </div>
+        <div class="form-group">
+            <label for="atrasados">Dias de Atraso:</label>
+            <input type="number" id="atrasados" placeholder="Digite os dias de atraso">
+        </div>
+        <div class="form-group">
+            <button onclick="calcularDivida()">Calcular Dívida Atual</button>
+        </div>
+
+        <div class="result" id="resultado">
+            <!-- Os resultados serão exibidos aqui -->
+        </div>
+    </div>
+
+    <script>
+        function calcularDivida() {
+            const valorEmprestimo = parseFloat(document.getElementById('valor-emprestimo').value);
+            const juros = parseFloat(document.getElementById('juros').value) / 100;
+            const parcelas = parseInt(document.getElementById('parcelas').value);
+            const parcelasQuitadas = parseInt(document.getElementById('parcelas-quitadas').value);
+            const diasAtraso = parseInt(document.getElementById('atrasados').value);
+            const multaAtrasoDiaria = 0.025; // 2,5% por dia de atraso
+
+            // Cálculo da dívida total com juros
+            const dividaTotal = valorEmprestimo * (1 + juros);
+
+            // Cálculo da multa por atraso
+            const multaPorAtraso = diasAtraso > 0 ? valorEmprestimo * multaAtrasoDiaria * diasAtraso : 0;
+
+            // Dívida amortizada (parte do empréstimo já paga)
+            const dividaAmortizada = (parcelasQuitadas / parcelas) * dividaTotal;
+
+            // Juros amortizados
+            const jurosAmortizados = (parcelasQuitadas / parcelas) * valorEmprestimo * juros;
+
+            // Dívida atual (dívida total - amortização) + multa
+            const dividaAtual = dividaTotal - dividaAmortizada + multaPorAtraso;
+
+            // Exibindo resultados
+            document.getElementById('resultado').innerHTML = `
+                <p><strong>Dívida Total com Juros:</strong> R$ ${dividaTotal.toFixed(2)}</p>
+                <p><strong>Multa por Atraso:</strong> R$ ${multaPorAtraso.toFixed(2)}</p>
+                <p><strong>Dívida Amortizada:</strong> R$ ${dividaAmortizada.toFixed(2)}</p>
+                <p><strong>Juros Amortizados:</strong> R$ ${jurosAmortizados.toFixed(2)}</p>
+                <p><strong>Dívida Atual:</strong> R$ ${dividaAtual.toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

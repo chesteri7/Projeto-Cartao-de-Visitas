@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Empréstimos - Chestão Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciar Empréstimos</h1>
+    </header>
+
+    <section id="gerenciamento">
+        <form id="emprestimoForm">
+            <label for="cliente">Cliente (CPF):</label>
+            <input type="text" id="cliente" name="cliente" required>
+
+            <label for="data">Data do Empréstimo:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="valor">Valor do Empréstimo (R$):</label>
+            <input type="number" id="valor" name="valor" required>
+
+            <label for="parcelas">Número de Parcelas:</label>
+            <input type="number" id="parcelas" name="parcelas" required>
+
+            <label for="juros">Taxa de Juros (%):</label>
+            <input type="number" id="juros" name="juros" step="0.01" required>
+
+            <label for="parcelas_quitadas">Parcelas Quitadas:</label>
+            <input type="number" id="parcelas_quitadas" name="parcelas_quitadas">
+
+            <label for="atrasados">Parcelas Atrasadas:</label>
+            <input type="number" id="atrasados" name="atrasados">
+
+            <label for="divida_amortizada">Dívida Amortizada (R$):</label>
+            <input type="number" id="divida_amortizada" name="divida_amortizada">
+
+            <label for="juros_amortizados">Juros Amortizados (R$):</label>
+            <input type="number" id="juros_amortizados" name="juros_amortizados">
+
+            <label for="divida_atual">Dívida Atual (R$):</label>
+            <input type="number" id="divida_atual" name="divida_atual">
+
+            <button type="submit">Registrar Empréstimo</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chestão Bank. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
